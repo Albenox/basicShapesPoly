@@ -1,13 +1,17 @@
 // main.cpp
-// Test program for BasicShape and Circle
+// Test program for BasicShape, Circle, Rectangle, and Square
 
 #include <iostream>
+#include <iomanip>
+#include "BasicShape.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Square.h"
 using namespace std;
 
 int main() {
+    cout << fixed << setprecision(2);
+
     //
     // Circle Test
     cout << "----- Circle Test -----" << endl;
@@ -79,6 +83,31 @@ int main() {
 
     cout << "New Side: " << s1.getSide() << endl;
     cout << "New Area: " << s1.getArea() << endl;
+
+    //
+    // Polymorphism Test
+    cout << endl << endl;
+    cout << "----- Polymorphism Test -----" << endl;
+
+    // Array of base class pointers
+    BasicShape* shapes[3];
+
+    // Store different derived objects
+    shapes[0] = new Circle(0, 0, 3, "Circle_P");
+    shapes[1] = new Rectangle(2, 5, "Rectangle_P");
+    shapes[2] = new Square(4, "Square_P");
+
+    // Print shape names and areas through BasicShape pointers
+    for (int i = 0; i < 3; i++) {
+        cout << "Name: " << shapes[i]->getName() << endl;
+        cout << "Area: " << shapes[i]->getArea() << endl;
+        cout << endl;
+    }
+
+    // Free memory
+    for (int i = 0; i < 3; i++) {
+        delete shapes[i];
+    }
 
     return 0;
 }
