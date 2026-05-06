@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Circle.h"
 #include "Rectangle.h"
+#include "Square.h"
 using namespace std;
 
 int main() {
@@ -55,6 +56,29 @@ int main() {
     cout << "New Length: " << r1.getLength() << endl;
     cout << "New Width: " << r1.getWidth() << endl;
     cout << "New Area: " << r1.getArea() << endl;
+
+    //
+    // Square Test
+    cout << endl << endl;
+    cout << "----- Square Test -----" << endl;
+
+    // Create Square
+    Square s1(5, "Square_1");
+
+    cout << "Name: " << s1.getName() << endl;
+    cout << "Area: " << s1.getArea() << endl;
+
+    // Square Setter
+    cout << endl;
+    cout << "----- Setter Test -----" << endl;
+
+    cout << "Old Side: " << s1.getSide() << endl;
+    cout << "Old Area: " << s1.getArea() << endl;
+
+    s1.setSide(10);
+
+    cout << "New Side: " << s1.getSide() << endl;
+    cout << "New Area: " << s1.getArea() << endl;
 
     return 0;
 }
